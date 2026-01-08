@@ -1,0 +1,82 @@
+
+23. Printing statistics.
+
+=== aes ===
+
+   Number of wires:              25271
+   Number of wire bits:          25340
+   Number of public wires:        3131
+   Number of public wire bits:    3200
+   Number of ports:                  7
+   Number of port bits:             76
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              22283
+     AND2_X1                       200
+     AND2_X2                         2
+     AND3_X1                        73
+     AND4_X1                       128
+     AND4_X2                         2
+     AOI211_X2                      27
+     AOI21_X1                     1434
+     AOI21_X2                        2
+     AOI221_X1                     295
+     AOI221_X2                      18
+     AOI222_X1                     133
+     AOI22_X1                     1151
+     AOI22_X2                        1
+     BUF_X1                       1452
+     BUF_X16                         1
+     BUF_X2                        267
+     BUF_X4                         61
+     BUF_X8                          5
+     CLKBUF_X1                     430
+     DFFR_X1                      2987
+     DFFS_X1                         7
+     HA_X1                          19
+     INV_X1                        639
+     INV_X2                          1
+     INV_X4                          1
+     MUX2_X1                      2258
+     MUX2_X2                         7
+     NAND2_X1                     1976
+     NAND2_X2                        5
+     NAND3_X1                      521
+     NAND3_X2                        3
+     NAND4_X1                      364
+     NAND4_X2                       27
+     NAND4_X4                        8
+     NOR2_X1                      1469
+     NOR2_X2                        19
+     NOR2_X4                         1
+     NOR3_X1                       599
+     NOR3_X2                         6
+     NOR3_X4                         2
+     NOR4_X1                       338
+     NOR4_X2                        10
+     NOR4_X4                         2
+     OAI211_X2                     158
+     OAI21_X1                     1821
+     OAI21_X2                        3
+     OAI221_X1                     484
+     OAI221_X2                       4
+     OAI222_X1                      19
+     OAI22_X1                      492
+     OAI22_X2                        5
+     OAI33_X1                      134
+     OR2_X1                        195
+     OR2_X2                          3
+     OR2_X4                          1
+     OR3_X1                         53
+     OR4_X1                         36
+     OR4_X2                          6
+     OR4_X4                          1
+     XNOR2_X1                     1615
+     XNOR2_X2                        4
+     XOR2_X1                       295
+     XOR2_X2                         3
+
+   Chip area for module '\aes': 39473.602000
+     of which used for sequential elements: 15928.080000 (40.35%)
+

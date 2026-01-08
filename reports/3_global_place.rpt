@@ -1,0 +1,273 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 5.25
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: reset_n (input port clocked by core_clock)
+Endpoint: result_reg[49]$_DFF_PN0_
+          (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 ^ input external delay
+  2994 6553.64    0.00    0.00    2.00 ^ reset_n (in)
+                                         reset_n (net)
+                  2.65    2.17    4.17 ^ result_reg[49]$_DFF_PN0_/RN (DFFR_X1)
+                                  4.17   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ result_reg[49]$_DFF_PN0_/CK (DFFR_X1)
+                          3.50    3.50   library removal time
+                                  3.50   data required time
+-----------------------------------------------------------------------------
+                                  3.50   data required time
+                                 -4.17   data arrival time
+-----------------------------------------------------------------------------
+                                  0.67   slack (MET)
+
+
+Startpoint: core.ready_reg$_DFFE_PN1P_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: ready_reg$_DFF_PN0_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ core.ready_reg$_DFFE_PN1P_/CK (DFFS_X2)
+     2    9.34    0.01    0.10    0.10 v core.ready_reg$_DFFE_PN1P_/Q (DFFS_X2)
+                                         core.ready (net)
+                  0.01    0.00    0.10 v ready_reg$_DFF_PN0_/D (DFFR_X1)
+                                  0.10   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ ready_reg$_DFF_PN0_/CK (DFFR_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.10   data arrival time
+-----------------------------------------------------------------------------
+                                  0.09   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: reset_n (input port clocked by core_clock)
+Endpoint: result_reg[49]$_DFF_PN0_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 ^ input external delay
+  2994 6553.64    0.00    0.00    2.00 ^ reset_n (in)
+                                         reset_n (net)
+                  2.65    2.17    4.17 ^ result_reg[49]$_DFF_PN0_/RN (DFFR_X1)
+                                  4.17   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ result_reg[49]$_DFF_PN0_/CK (DFFR_X1)
+                         -0.58    9.42   library recovery time
+                                  9.42   data required time
+-----------------------------------------------------------------------------
+                                  9.42   data required time
+                                 -4.17   data arrival time
+-----------------------------------------------------------------------------
+                                  5.25   slack (MET)
+
+
+Startpoint: address[0] (input port clocked by core_clock)
+Endpoint: read_data[26] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 ^ input external delay
+     1   12.02    0.00    0.00    2.00 ^ address[0] (in)
+                                         address[0] (net)
+                  0.00    0.00    2.00 ^ _22249_/A (BUF_X4)
+     7   29.93    0.02    0.03    2.03 ^ _22249_/Z (BUF_X4)
+                                         _16292_ (net)
+                  0.02    0.00    2.04 ^ _22250_/A (INV_X4)
+     6   30.94    0.01    0.02    2.06 v _22250_/ZN (INV_X4)
+                                         _16293_ (net)
+                  0.01    0.00    2.06 v _22251_/A2 (NOR2_X4)
+     5   23.31    0.03    0.05    2.11 ^ _22251_/ZN (NOR2_X4)
+                                         _16294_ (net)
+                  0.03    0.00    2.11 ^ _22252_/B2 (AOI21_X1)
+     1    3.86    0.01    0.03    2.13 v _22252_/ZN (AOI21_X1)
+                                         _16295_ (net)
+                  0.01    0.00    2.13 v _22253_/A4 (OR4_X4)
+     2   11.93    0.02    0.11    2.24 v _22253_/ZN (OR4_X4)
+                                         _16296_ (net)
+                  0.02    0.00    2.24 v _41231_/A2 (NOR2_X4)
+    10   43.16    0.06    0.08    2.32 ^ _41231_/ZN (NOR2_X4)
+                                         _16053_ (net)
+                  0.06    0.00    2.32 ^ _41233_/A1 (AND2_X1)
+     1    1.69    0.01    0.04    2.37 ^ _41233_/ZN (AND2_X1)
+                                         _16055_ (net)
+                  0.01    0.00    2.37 ^ _41234_/A (CLKBUF_X3)
+     8   19.67    0.02    0.04    2.41 ^ _41234_/Z (CLKBUF_X3)
+                                         _16056_ (net)
+                  0.02    0.00    2.41 ^ _41260_/A2 (AND2_X2)
+    10   14.00    0.02    0.05    2.46 ^ _41260_/ZN (AND2_X2)
+                                         _16080_ (net)
+                  0.02    0.00    2.46 ^ _41347_/A1 (AND2_X1)
+     1    8.74    0.02    0.05    2.51 ^ _41347_/ZN (AND2_X1)
+                                         read_data[26] (net)
+                  0.02    0.00    2.51 ^ read_data[26] (out)
+                                  2.51   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.00    8.00   output external delay
+                                  8.00   data required time
+-----------------------------------------------------------------------------
+                                  8.00   data required time
+                                 -2.51   data arrival time
+-----------------------------------------------------------------------------
+                                  5.49   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: reset_n (input port clocked by core_clock)
+Endpoint: result_reg[49]$_DFF_PN0_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 ^ input external delay
+  2994 6553.64    0.00    0.00    2.00 ^ reset_n (in)
+                                         reset_n (net)
+                  2.65    2.17    4.17 ^ result_reg[49]$_DFF_PN0_/RN (DFFR_X1)
+                                  4.17   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ result_reg[49]$_DFF_PN0_/CK (DFFR_X1)
+                         -0.58    9.42   library recovery time
+                                  9.42   data required time
+-----------------------------------------------------------------------------
+                                  9.42   data required time
+                                 -4.17   data arrival time
+-----------------------------------------------------------------------------
+                                  5.25   slack (MET)
+
+
+Startpoint: address[0] (input port clocked by core_clock)
+Endpoint: read_data[26] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 ^ input external delay
+     1   12.02    0.00    0.00    2.00 ^ address[0] (in)
+                                         address[0] (net)
+                  0.00    0.00    2.00 ^ _22249_/A (BUF_X4)
+     7   29.93    0.02    0.03    2.03 ^ _22249_/Z (BUF_X4)
+                                         _16292_ (net)
+                  0.02    0.00    2.04 ^ _22250_/A (INV_X4)
+     6   30.94    0.01    0.02    2.06 v _22250_/ZN (INV_X4)
+                                         _16293_ (net)
+                  0.01    0.00    2.06 v _22251_/A2 (NOR2_X4)
+     5   23.31    0.03    0.05    2.11 ^ _22251_/ZN (NOR2_X4)
+                                         _16294_ (net)
+                  0.03    0.00    2.11 ^ _22252_/B2 (AOI21_X1)
+     1    3.86    0.01    0.03    2.13 v _22252_/ZN (AOI21_X1)
+                                         _16295_ (net)
+                  0.01    0.00    2.13 v _22253_/A4 (OR4_X4)
+     2   11.93    0.02    0.11    2.24 v _22253_/ZN (OR4_X4)
+                                         _16296_ (net)
+                  0.02    0.00    2.24 v _41231_/A2 (NOR2_X4)
+    10   43.16    0.06    0.08    2.32 ^ _41231_/ZN (NOR2_X4)
+                                         _16053_ (net)
+                  0.06    0.00    2.32 ^ _41233_/A1 (AND2_X1)
+     1    1.69    0.01    0.04    2.37 ^ _41233_/ZN (AND2_X1)
+                                         _16055_ (net)
+                  0.01    0.00    2.37 ^ _41234_/A (CLKBUF_X3)
+     8   19.67    0.02    0.04    2.41 ^ _41234_/Z (CLKBUF_X3)
+                                         _16056_ (net)
+                  0.02    0.00    2.41 ^ _41260_/A2 (AND2_X2)
+    10   14.00    0.02    0.05    2.46 ^ _41260_/ZN (AND2_X2)
+                                         _16080_ (net)
+                  0.02    0.00    2.46 ^ _41347_/A1 (AND2_X1)
+     1    8.74    0.02    0.05    2.51 ^ _41347_/ZN (AND2_X1)
+                                         read_data[26] (net)
+                  0.02    0.00    2.51 ^ read_data[26] (out)
+                                  2.51   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.00    8.00   output external delay
+                                  8.00   data required time
+-----------------------------------------------------------------------------
+                                  8.00   data required time
+                                 -2.51   data arrival time
+-----------------------------------------------------------------------------
+                                  5.49   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.19e-03   2.31e-05   2.53e-04   2.46e-03  60.6%
+Combinational          3.69e-04   3.34e-04   8.96e-04   1.60e-03  39.4%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.56e-03   3.57e-04   1.15e-03   4.06e-03 100.0%
+                          62.9%       8.8%      28.3%

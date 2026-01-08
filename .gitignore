@@ -1,0 +1,12 @@
+# 过滤掉体积巨大的二进制数据库
+*.odb
+*.rtlil
+*.json
+*.guide
+*.cir
+
+# 过滤掉中间过程文件
+results/separated/floorplan/
+results/separated/placement/
+results/separated/cts/
+results/separated/routing/

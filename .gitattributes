@@ -1,0 +1,3 @@
+*.v linguist-language=Verilog
+*.tcl linguist-language=Tcl
+*.ys linguist-language=Tcl
