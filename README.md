@@ -13,43 +13,43 @@
 
 ---
 
-## 📂 目录结构 (Directory Structure)
+## 📂 项目目录结构 (Directory Tree)
 
 ```text
 .
-|   .gitattributes
-|   .gitignore
-|   aes.core
-|   config.mk
-|   constraint.sdc
-|   Makefile
-|   README.md
-+---docs/
-|       terminal.txt
-+---reports/
-|       final_all.webp.png
-+---results/
-|       6_final.gds
-|       6_final.spef
-|       6_final.v
-|       6_lvs.lvsdb
-+---scripts/
-|       2_floorplan_to_pdn.tcl
-|       3_placement.tcl
-|       4_clock_tree_synthesis.tcl
-|       5_routing.tcl
-|       aes_secworks_def2stream.py
-+---src/
-|       aes.v
-|       aes_core.v
-|       aes_decipher_block.v
-|       aes_encipher_block.v
-|       aes_inv_sbox.v
-|       aes_key_mem.v
-|       aes_sbox.v
-|       LICENSE
-+---syn/
-        aes_secworks.ys
+├── .gitattributes        
+├── .gitignore              
+├── aes.core                # 核心定义文件
+├── config.mk               # 全局变量与路径配置
+├── constraint.sdc          # 时序约束文件
+├── Makefile                # 自动化流程脚本入口
+├── README.md               # 项目说明文档
+│
+├── docs/                   # 项目说明与运行日志
+│   └── terminal.txt        # 终端操作记录
+│
+├── reports/                # 过程分析报告与版图截图
+│   └── final_all.webp.png  # 最终全层版图截图
+│
+├── results/                # 仅展示最终 Sign-off 产物
+│   ├── 6_final.gds         # 最终 GDSII 版图文件
+│   ├── 6_final.spef        # 寄生参数文件 (RC Data)
+│   ├── 6_final.v           # 物理实现后的门级网表
+│   └── 6_lvs.lvsdb         # LVS 验证数据库
+│
+├── scripts/                # 物理实现分步 Tcl 脚本
+│   ├── 2_floorplan_to_pdn.tcl
+│   ├── 3_placement.tcl
+│   ├── 4_clock_tree_synthesis.tcl
+│   ├── 5_routing.tcl
+│   └── aes_secworks_def2stream.py
+│
+├── src/                    # RTL 源代码 (AES 设计文件)
+│   ├── aes.v               # 顶层模块
+│   └── ... (其他 .v 文件)
+│
+└── syn/                    # 逻辑综合阶段
+    └── aes_secworks.ys     # Yosys 综合脚本
 ```
 
 ---
@@ -60,7 +60,6 @@
 
 ### 一键执行全流程
 ```bash
-# 自动依次执行：综合 -> 布局 -> 布线 -> 导出 GDS
 make
 
 ```
